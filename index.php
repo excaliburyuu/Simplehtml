@@ -45,7 +45,7 @@
 			}
 			else if (isset($_POST['load'])) {
 				try {
-            $sql_select = "SELECT * FROM Registration";
+            $sql_select = "SELECT * FROM registrasi";
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
