@@ -15,15 +15,12 @@
 		</form>
 		
 		<?php
-
-			$server = "cobaazuredicoding.database.windows.net";
-			$user = "josesadriel";
-			$password = "Makanberger1";
-			$nama_database = "cobaazuredb";
-
-			$db = mysqli_connect($server, $user, $password, $nama_database);
-
-			if( !$db ){
-				die("Gagal terhubung dengan database: " . mysqli_connect_error());
+			try {
+    				$conn = new PDO("sqlsrv:server = tcp:cobaazuredicoding.database.windows.net,1433; Database = cobaazuredb", "josesadriel", "Makanberger1");
+    				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			}
+			catch (PDOException $e) {
+    				print("Error connecting to SQL Server.");
+    				die(print_r($e));
 			}
 		?>
