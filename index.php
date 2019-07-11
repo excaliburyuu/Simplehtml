@@ -42,10 +42,17 @@
 					$email = $_POST['email'];
 					$job = $_POST['pekerjaan'];
 					$waktu = date("Y-m-d");
-					$sql = "INSERT INTO registrasi (nama, email, pekerjaan, tanggal) VALUES ('$nama', '$email', '$job', '$waktu');";
-					$query = mysqli_query($conn, $sql);
+					// Insert data
+					$sql_insert = "INSERT INTO Registration (nama, email, pekerjaan, tanggal) 
+								VALUES (?,?,?,?)";
+					$stmt = $conn->prepare($sql_insert);
+					$stmt->bindValue(1, $nama);
+					$stmt->bindValue(2, $email);
+					$stmt->bindValue(3, $job);
+					$stmt->bindValue(4, $waktu);
+					$stmt->execute();
 				} catch(Exception $e) {
-					echo "Gagal Submit!";
+					echo "Failed: " . $e;
 				}
 			}
 			
