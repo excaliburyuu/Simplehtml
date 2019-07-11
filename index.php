@@ -43,7 +43,7 @@
 					$job = $_POST['pekerjaan'];
 					$waktu = date("Y-m-d");
 					// Insert data
-					$sql_insert = "INSERT INTO Registration (nama, email, pekerjaan, tanggal) 
+					$sql_insert = "INSERT INTO registrasi (nama, email, pekerjaan, tanggal) 
 								VALUES (?,?,?,?)";
 					$stmt = $conn->prepare($sql_insert);
 					$stmt->bindValue(1, $nama);
