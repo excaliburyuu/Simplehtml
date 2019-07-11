@@ -45,7 +45,7 @@
 			}
 			else if (isset($_POST['load'])) {
 				try {
-            $sql_select = "SELECT * FROM registrasi";
+            $sql_select = "SELECT * FROM Registration";
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
@@ -56,10 +56,10 @@
                 echo "<th>Job</th>";
                 echo "<th>Date</th></tr>";
                 foreach($registrants as $registrant) {
-                    echo "<tr><td>".$registrant['name']."</td>";
+                    echo "<tr><td>".$registrant['nama']."</td>";
                     echo "<td>".$registrant['email']."</td>";
-                    echo "<td>".$registrant['job']."</td>";
-                    echo "<td>".$registrant['date']."</td></tr>";
+                    echo "<td>".$registrant['pekerjaan']."</td>";
+                    echo "<td>".$registrant['tanggal']."</td></tr>";
                 }
                 echo "</table>";
             } else {
