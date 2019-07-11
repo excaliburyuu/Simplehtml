@@ -10,7 +10,6 @@
 			Nama: <input type="text" placeholder="Masukkan Nama Anda.." name="nama"/><br/>
 			E-mail: <input type="mail" placeholder="Masukkan E-mail Anda.." name="email"/><br/>
 			Pekerjaan: <input type="text" placeholder="Masukkan Pekerjaan Anda.." name="pekerjaan"/><br/>
-			Tanggal: <input type="text" placeholder="Masukkan nama Anda.." name="nama"/><br/>
 			<input type="submit" name="kirim" value="Submit" />
 		</form>
 		
@@ -19,9 +18,24 @@
 		    $user = "josesadriel";
 		    $pass = "Makanberger1";
 		    $db = "cobaazuredb";
-			try {
-        			$conn = mysqli_connect($host, $user, $pass, $db);
-    			} catch(Exception $e) {
-        			echo "Failed: ";
-    			}
+		    try {
+        		$conn = mysqli_connect($host, $user, $pass, $db);
+    		    } catch(Exception $e) {
+        		echo "Koneksi Gagal!";
+    		    }
+		    
+			if (isset($_POST['kirim']) {
+				try {
+					$nama = $_POST['nama'];
+					$email = $_POST['email'];
+					$job = $_POST['pekerjaan'];
+				
+					$sql = "INSERT INTO registrasi (nama, email, pekerjaan, tanggal) VALUES ('$nama', '$email', '$job', NOW())";
+					$query = mysqli_query($conn, $sql);
+				} catch(Exception $e) {
+					echo "Gagal Submit!";
+				}
+			}
 		?>
+	</body>
+</html>
