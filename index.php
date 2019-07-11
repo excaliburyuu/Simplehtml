@@ -29,11 +29,13 @@
 		    $user = "josesadriel";
 		    $pass = "Makanberger1";
 		    $db = "cobaazuredb";
-		    $conn = mysqli_connect($host, $user, $pass, $db);
-			if (mysqli_connect_errno()){
-				echo "Failed to connect to MySQL: " . mysqli_connect_error();
+			try {
+				$conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
+				$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+			} catch(Exception $e) {
+				echo "Failed: " . $e;
 			}
-		    
+			
 			if (isset($_POST['kirim'])) {
 				try {
 					$nama = $_POST['nama'];
