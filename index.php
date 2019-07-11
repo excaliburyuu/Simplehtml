@@ -12,18 +12,6 @@
 			Pekerjaan: <input type="text" placeholder="Masukkan Pekerjaan Anda.." name="pekerjaan"/><br/>
 			<input type="submit" name="kirim" value="Submit" /> | <input type="submit" name="load" value="Load Data"/>
 		</form>
-		
-		<table border="1">
-			<thead>
-				<tr>
-					<th>No</th>
-					<th>Nama</th>
-					<th>E-Mail</th>
-					<th>Pekerjaan</th>
-					<th>Tanggal</th>
-				</tr>
-			</thead>
-			<tbody>
 		<?php
 		    $host = "cobaazuredicoding.database.windows.net";
 		    $user = "josesadriel";
@@ -43,7 +31,7 @@
 					$job = $_POST['pekerjaan'];
 					$waktu = date("Y-m-d");
 					// Insert data
-					$sql_insert = "INSERT INTO registrasi (nama, email, pekerjaan, tanggal) 
+					$sql_insert = "INSERT INTO Registration (nama, email, pekerjaan, tanggal) 
 								VALUES (?,?,?,?)";
 					$stmt = $conn->prepare($sql_insert);
 					$stmt->bindValue(1, $nama);
@@ -55,23 +43,32 @@
 					echo "Failed: " . $e;
 				}
 			}
-			
-			if (isset($_POST['load'])) {
-				$sql = "SELECT * FROM registrasi;";
-				$query = mysqli_query($conn, $sql);
-				
-				while($data = mysqli_fetch_array($query)) {
-					echo "<tr>";
-
-					echo "<td>".$data['id']."</td>";
-					echo "<td>".$data['nama']."</td>";
-					echo "<td>".$data['email']."</td>";
-					echo "<td>".$data['pekerjaan']."</td>";
-					echo "<td>".$data['tanggal']."</td>";
-				}
+			else if (isset($_POST['load'])) {
+				try {
+            $sql_select = "SELECT * FROM Registration";
+            $stmt = $conn->query($sql_select);
+            $registrants = $stmt->fetchAll(); 
+            if(count($registrants) > 0) {
+                echo "<h2>People who are registered:</h2>";
+                echo "<table>";
+                echo "<tr><th>Name</th>";
+                echo "<th>Email</th>";
+                echo "<th>Job</th>";
+                echo "<th>Date</th></tr>";
+                foreach($registrants as $registrant) {
+                    echo "<tr><td>".$registrant['name']."</td>";
+                    echo "<td>".$registrant['email']."</td>";
+                    echo "<td>".$registrant['job']."</td>";
+                    echo "<td>".$registrant['date']."</td></tr>";
+                }
+                echo "</table>";
+            } else {
+                echo "<h3>No one is currently registered.</h3>";
+            }
+        } catch(Exception $e) {
+            echo "Failed: " . $e;
+        }
 			}
 		?>
-			</tbody>
-		</table>
 	</body>
 </html>
