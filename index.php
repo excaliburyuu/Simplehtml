@@ -20,9 +20,8 @@
 		    $pass = "Makanberger1";
 		    $db = "cobaazuredb";
 			try {
-				$conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-				$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	    		} catch(Exception $e) {
-				echo "Failed: " . $e;
-	    		}
+        			$conn = mysqli_connect($host, $user, $pass, $db);
+    			} catch(Exception $e) {
+        			echo "Failed: " . $e;
+    			}
 		?>
