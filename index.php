@@ -22,6 +22,6 @@
 			try {
         			$conn = mysqli_connect($host, $user, $pass, $db);
     			} catch(Exception $e) {
-        			echo "Failed: " . $e;
+        			echo "Failed: ";
     			}
 		?>
