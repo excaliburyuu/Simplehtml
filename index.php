@@ -106,7 +106,7 @@
                 }
                 echo "</table>";
             } else {
-                echo "<h3>No one is currently registered.</h3>";
+                echo "<center><h3>Kosong</h3></center>";
             }
         } catch(Exception $e) {
             echo "Failed: " . $e;
