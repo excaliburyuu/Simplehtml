@@ -40,7 +40,7 @@
 	</head>
 	<body>
 		<h1 style="background-color:orange; color: #fff">Form Registrasi</h1>
-		<font color="#ccc">Registrasi dengan mengisi form yang tersedia</font>
+		<center><font color="gray">Registrasi dengan mengisi form yang tersedia</font></center>
 		<br/>
 		<form action="#" method="post">
 			<table class="center">
