@@ -10,7 +10,7 @@
 			form {
 				width:100%;
 			}
-			table {
+			table.center {
 				margin: 0 auto;
 				z-index:1;
 				width:50%;
@@ -43,7 +43,7 @@
 		<font color="#ccc">Registrasi dengan mengisi form yang tersedia</font>
 		<br/>
 		<form action="#" method="post">
-			<table>
+			<table class="center">
 				<tr valign="middle">
 					<td width="5%">Nama</td><td>:</td><td><input type="text" placeholder="Masukkan Nama Anda.." name="nama"/></td>
 				</tr>
@@ -93,8 +93,7 @@
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
-                echo "<h2>People who are registered:</h2>";
-                echo "<table>";
+                echo "<table width='100%' border='1'>";
                 echo "<tr><th>Name</th>";
                 echo "<th>Email</th>";
                 echo "<th>Job</th>";
