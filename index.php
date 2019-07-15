@@ -1,16 +1,60 @@
 <html>
 	<head>
 		<title>Dicoding Submission 1</title>
+		<style>
+			body {
+				max-width:649px;
+				border:1px solid #000;
+				margin:0px auto;
+			}
+			form {
+				width:100%;
+			}
+			table {
+				margin: 0 auto;
+				z-index:1;
+				width:50%;
+			}
+			input[type="text"], input[type="mail"] {
+				padding:4px;
+				color:#000;
+				border:1px solid blue;
+				margin:3px;
+				border-radius:3px;
+			}
+			input[type="submit"] {
+				background-color: blue;
+				padding:5px;
+				color:#fff;
+				border:1px solid blue;
+				border-radius: 3px;
+			}
+			input[type="submit"]:hover {
+				background-color: orange;
+				padding:5px;
+				color:#fff;
+				border:1px solid orange;
+				border-radius: 3px;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Form Registrasi</h1>
+		<h1 style="background-color:orange; color: #fff">Form Registrasi</h1>
 		<font color="#ccc">Registrasi dengan mengisi form yang tersedia</font>
 		<br/>
 		<form action="#" method="post">
-			Nama: <input type="text" placeholder="Masukkan Nama Anda.." name="nama"/><br/>
-			E-mail: <input type="mail" placeholder="Masukkan E-mail Anda.." name="email"/><br/>
-			Pekerjaan: <input type="text" placeholder="Masukkan Pekerjaan Anda.." name="pekerjaan"/><br/>
-			<input type="submit" name="kirim" value="Submit" /> | <input type="submit" name="load" value="Load Data"/>
+			<table>
+				<tr valign="middle">
+					<td width="5%">Nama</td><td>:</td><td><input type="text" placeholder="Masukkan Nama Anda.." name="nama"/></td>
+				</tr>
+				<tr valign="middle">
+					<td width="5%">E-mail</td><td>:</td><td><input type="mail" placeholder="Masukkan E-mail Anda.." name="email"/></td>
+				</tr>
+				<tr valign="middle">
+					<td width="5%">Pekerjaan</td><td>:</td><td><input type="text" placeholder="Masukkan Pekerjaan Anda.." name="pekerjaan"/></td>
+				</tr>
+			</table>
+			<center><input type="submit" name="kirim" value="Submit" /> <input type="submit" name="load" value="Load Data"/></center>
 		</form>
 		<?php
 		    $host = "cobaazuredicoding.database.windows.net";
